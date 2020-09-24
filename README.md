@@ -27,8 +27,8 @@ Un document HTML est une arborescence de balises.
 >`head` contient les **métadonnées** de la page, c'est-à-dire des informations sur la page HTML affichée.
 >
 >Cela peut être son titre (affiché dans les résultats d'un moteur de recherche ou bien dans l'onglet du navigateur), des ressources CSS externes à charger, etc...
-
-
+---
+>`body` contient le **corps** de la page, donc ce qui est affiché à l'écran
 
 `html`, `head` et `body` sont ce qu'on appelle des **balises** (**tags** en anglais).
 
