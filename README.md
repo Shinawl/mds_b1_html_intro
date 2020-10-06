@@ -164,3 +164,100 @@ Contrairement à des balises comme `p`, `h1` ou `table`, la balise `div` a une v
   <!-- /Produit -->
 </div>
 ```
+
+## 06/10
+
+### Eléments de type `block` et `inline`
+
+Chaque élément a en HTML un type `block` ou `inline`.
+
+- Un élément `block` va occuper tout l'espace horizontal disponible (toute la largeur de la page) et l'élément suivant sera sur une nouvelle ligne
+- Un élément `inline` ne va occuper que l'espace requis par son contenun et l'élément suivant sera sur la même ligne
+
+Quelques exemples :
+
+| `block` | `inline` |
+|---|---|
+| p, div, h1...h6 | img, a, span |
+
+### CSS - Introduction
+
+Un ensemble de règles CSS définies dans un fichier va nous permettre de **styliser** les éléments HTML de notre page.
+
+Pour ce faire, on va devoir **cibler** les éléments pour leur appliquer un style particulier.
+
+On va créer un fichier CSS contenant les règles à appliquer.
+
+Ensuite, on va **intégrer** ce fichier à notre fichier HTML avec la balise `link` :
+
+>Fichier : `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- ... -->
+    <link href="styles.css" rel="stylesheet" />
+    <!-- ... -->
+  </head>
+  <body>
+    <!-- ... -->
+  </body>
+</html>
+```
+
+Syntaxe CSS :
+
+```css
+/* Commentaire */
+selecteur {
+  regle: valeur;
+}
+```
+
+Le sélecteur va nous permettre de cibler le ou les éléments sur lesquels appliquer nos règles.
+
+Si je veux cibler une balise HTML, comme `body` par exemple, il me suffit d'indiquer le nom de la balise :
+
+```css
+body {
+  color: blue; /* Couleur du texte */
+}
+```
+
+Ou bien une balise `a` :
+
+```css
+a {
+  text-decoration: none; /* ne pas souligner le lien */
+}
+```
+
+Mais si je souhaite être plus spécifique sur l'élément à sélectionner, par exemple si je ne veux pas que tous mes liens n'aient plus de soulignage, je peux utiliser les attributs HTML dans ma page :
+
+```html
+<a href="#page-top" id="link-top">Retour en haut</a>
+```
+
+Ici, on a déclaré que le lien avait un identifiant dans la page, `link-top`.
+
+On peut donc déclarer, dans le fichier CSS, un ensemble de règles qui vont s'appliquer uniquement à `link-top`.
+
+En CSS, pour désigner un élément par son ID, on indique son nom précédé d'un `#` :
+
+```css
+#link-top {
+  text-decoration: none;
+  /* En majuscules */
+  text-transform: uppercase;
+  /* Code couleur : Rouge, Vert, Bleu (RVB) */
+  background-color: #4c5fff;
+  color: #FFF;
+  /* Marges intérieures */
+  padding: 7px;
+  /* Coins légèrement arrondis */
+  border-radius: 3px;
+}
+```
+
+>**Un ID doit être unique dans la page**

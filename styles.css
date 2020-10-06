@@ -1,0 +1,19 @@
+/*
+Déclaration d'une règle CSS :
+sélecteur {
+  règles;
+}
+*/
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+#link-top {
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #4c5fff;
+  color: #FFF;
+  padding: 7px;
+  border-radius: 3px;
+}
