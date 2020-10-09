@@ -261,3 +261,151 @@ En CSS, pour désigner un élément par son ID, on indique son nom précédé d'
 ```
 
 >**Un ID doit être unique dans la page**
+
+## 08/10
+
+### Le modèle Flexbox
+
+Nous avons vu que les éléments HTML pouvaient être de type `block` ou `inline`.
+
+La règle CSS correspondant à ce type d'affichage est `display`.
+
+On peut également utiliser `display` pour d'autres types d'affichages. Nous allons parler du type `flex`.
+
+Le modèle Flexbox permet, quand il est appliqué sur un conteneur, d'agir sur l'organisation de son contenu, c'est-à-dire ses balises enfants.
+
+Exemple :
+
+```css
+#bg-image {
+  /* Utilier Flexbox pour cet élément */
+  display: flex;
+  /* Afficher les enfants de cet élément les uns après les autres, en colonne  */
+  flex-direction: column;
+  /* Centrer les éléments enfants horizontalement */
+  align-items: center;
+  /* Centrer les éléments enfants verticalement */
+  justify-content: center;
+}
+```
+
+### Les unités de mesure en CSS
+
+Il existe de nombreuses unités de mesure en CSS. Nous ne les verrons pas toutes dans ce module, uniquement les plus couramment utilisées.
+
+- **px** : le pixel, pour fixer précisément la taille d'une police de caractère ou d'un élément, d'une marge, etc...
+- **vh** : viewport height. Un pourcentage de la taille de l'écran de l'utilisateur. On va utiliser par exemple `height: 100vh;` quand on voudra qu'un élément prenne toute la hauteur de l'écran
+- **em** : Une unité de mesure relative à la taille de base de la police de caractères
+
+> Exemple concernant `em` :
+
+```css
+body {
+  /* On fixe une taille de base de 18px pour le corps de notre page */
+  font-size: 18px;
+}
+
+h1 {
+  /* A l'affichage, le navigateur va prendre la taille de base (18px), et la multiplier par 5 */
+  font-size: 5em;
+}
+
+h2 {
+  /* Idem, taille de base x 3 */
+  font-size: 3em;
+}
+```
+
+>L'unité de mesure `em` va donc nous permettre de nous exprimer en valeur **relative** plutôt que de devoir fixer toutes les tailles de police par exemple. On peut utiliser `em` quand on définit des tailles de marge, également
+
+### Les sélecteurs en CSS
+
+Il y a différentes manières de cibler un ou plusieurs éléments en CSS, lorsqu'on écrit un **sélecteur**.
+
+#### Balise HTML
+
+La première qu'on a vue, la plus simple, consiste à définir un ensemble de règles CSS pour une balise HTML. Dans ce cas, on écrit simplement le nom de la balise, sans rien d'autre.
+
+```css
+h1 { /* ... */ }
+p { /* ... */ }
+a { /* ... */ }
+```
+
+#### Balise ayant un ID
+
+Précéder le nom de l'identifiant du caractère `#`.
+
+```css
+#identifiant { /* ... */ }
+```
+
+#### Elément se trouvant **dans** un autre élément
+
+Indiquer le nom des éléments, **en partant du parent**, séparés par un espace.
+
+```css
+parent #enfant autre-enfant { /* ... */ }
+```
+
+#### Elément ayant une **classe**
+
+Précéder le nom de la classe d'un point `.`
+
+```css
+.classe { /* ... */ }
+```
+
+### La différence entre ID et classe
+
+- Un ID pour un élément est unique dans toute la page. On peut cibler un élément qui a un identifiant avec le caractère `#` en CSS. L'attribut HTML à utiliser pour attribuer un identifiant à un élément est `id`
+- Une classe permet de réutiliser le même nom pour plusieurs éléments dans la page. Du point de vue de CSS, on pourra donc parler de **classe d'affichage**.
+
+Exemple de classe : je souhaite pouvoir afficher certains éléments de ma page en texte de couleur blanche. Je peux donc définir une classe d'affichage en CSS, qui aura la règle CSS `color: white`, puis je pourrai utiliser cette classe dans ma structure HTML :
+
+>CSS
+
+```css
+/*
+Classe d'affichage :
+Utilisable sur plusieurs éléments
+*/
+.white-text {
+  color: #fff;
+}
+```
+
+>HTML
+
+```html
+<h1 class="white-text">John Doe</h1>
+<h2 class="white-text">Développeur web</h2>
+```
+
+### Début de réalisation d'un CV
+
+Avant de se lancer, réalisons une maquette simple, sous forme de mockup :
+
+![Mockup du CV](cv_mockup.png "Mockup du CV")
+
+La partie supérieure devra occuper toute la hauteur de l'écran de l'utilisateur, comme pour présenter un écran d'accueil à l'arrivée sur la page.
+
+### Partie supérieure : image d'arrière-plan, centrage des éléments
+
+Lorsqu'on a une maquette comme celle qui se trouve juste au-dessus, on souhaite réaliser ce qu'on appelle un **découpage**.
+
+Le découpage consiste simplement à identifier les différentes parties de la page à réaliser, afin de les *traduire* en balises HTML.
+
+Par exemple, pour la partie supérieure de la page :
+
+- Nous allons avoir besoin d'un conteneur qui présentera l'image en arrière-plan
+- Le nom du développeur sera un titre de premier niveau (`h1`)
+- Le sous-titre sera donc un titre de second niveau (`h2`)
+
+Le conteneur qui va présenter l'image n'a pas réellement de **valeur sémantique**.
+
+>Cela signifie que l'on ne va pas spécialement utiliser une balise de titre, de paragraphe, de lien, etc...
+
+On va donc utiliser une balise `div` et lui appliquer une série de styles. Pour la cibler spécifiquement, on lui a appliqué l'identifiant `bg-image`.
+
+Voir le fichier [cv.css](cv.css) avec les commentaires pour avoir le résumé des règles CSS utilisées.

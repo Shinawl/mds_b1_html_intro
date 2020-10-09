@@ -1,0 +1,41 @@
+body {
+  margin: 0px; /* Marges extérieures */
+  font-size: 18px;
+}
+
+#bg-image {
+  background-image: url(bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  /* Utilier Flexbox pour cet élément */
+  display: flex;
+  /* Afficher les enfants de cet élément les uns après les autres, en colonne  */
+  flex-direction: column;
+  /* Centrer les éléments enfants horizontalement */
+  align-items: center;
+  /* Centrer les éléments enfants verticalement */
+  justify-content: center;
+}
+
+/* Sélectionne tous les éléments h1 se trouvant dans un élément qui a pour id "bg-image" */
+#bg-image h1 {
+  margin: 0px;
+  font-size: 5em;
+}
+
+#bg-image h2 {
+  font-size: 3em;
+}
+
+#bg-image h1, #bg-image h2 {
+  font-family: 'Pacifico', cursive;
+}
+
+/*
+Classe d'affichage :
+Utilisable sur plusieurs éléments
+*/
+.white-text {
+  color: #fff;
+}
