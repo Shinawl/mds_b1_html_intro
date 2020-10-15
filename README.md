@@ -432,7 +432,7 @@ Une fois qu'on a ouvert notre formulaire, on va ajouter des champs dedans :
 </form>
 ```
 
->Les balises `input sont auto-fermantes`.
+>Les balises `input` sont auto-fermantes.
 
 ## 15/10
 
