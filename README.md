@@ -409,3 +409,56 @@ Le conteneur qui va présenter l'image n'a pas réellement de **valeur sémantiq
 On va donc utiliser une balise `div` et lui appliquer une série de styles. Pour la cibler spécifiquement, on lui a appliqué l'identifiant `bg-image`.
 
 Voir le fichier [cv.css](cv.css) avec les commentaires pour avoir le résumé des règles CSS utilisées.
+
+## 13/10
+
+### Formulaires : introduction
+
+Un formulaire aura toujours pour balise racine la balise `form` :
+
+```html
+<form>
+  <!-- ... -->
+</form>
+```
+
+Une fois qu'on a ouvert notre formulaire, on va ajouter des champs dedans :
+
+```html
+<!-- Exemple de formulaire de recherche -->
+<form>
+  <input type="text" name="search" />
+  <input type="submit" value="Rechercher" />
+</form>
+```
+
+>Les balises `input sont auto-fermantes`.
+
+## 15/10
+
+### Chemin relatif - Remonter d'un niveau
+
+Nous avons déjà vu qu'un chemin relatif s'exprimait en prenant pour point de départ notre fichier courant.
+
+Ainsi, si je suis dans `index.html` et que je souhaite intégrer ma feuille de style `styles.css` qui se trouve dans le dossier `css`, je peux écrire mon chemin relatif : `css/styles.css`.
+
+Mais si je suis dans `css/styles.css` et que je veux déclarer une image d'arrière-plan qui se trouve non pas dans `css`, mais dans `images`, dossier au même niveau que `css` ?
+
+Relativement au dossier `css`, je peux indiquer au navigateur d'aller chercher l'image en remontant d'un niveau. Pour cela, on va utiliser la syntaxe `../`.
+
+Mettons qu'on a la structure suivante :
+
+```txt
+css/
+  styles.css
+images/
+  bg.jpg
+```
+
+Alors, dans ma feuille de style, je peux référencer l'image `bg.jpg` de la manière suivante :
+
+```css
+#mon-selecteur {
+  background-image: url(../images/bg.jpg);
+}
+```
