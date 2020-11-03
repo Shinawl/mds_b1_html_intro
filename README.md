@@ -348,6 +348,15 @@ Indiquer le nom des éléments, **en partant du parent**, séparés par un espac
 parent #enfant autre-enfant { /* ... */ }
 ```
 
+#### Elément étant un enfant direct d'un autre élément
+
+On va séparer l'élément parent de l'élément enfant par le caractère `>` :
+
+```css
+/* Ici je sélectionne tous les éléments div qui sont enfants directs des éléments ayant pour classe "elem1" */
+.elem1 > div { /* ... */ }
+```
+
 #### Elément ayant une **classe**
 
 Précéder le nom de la classe d'un point `.`
@@ -355,6 +364,7 @@ Précéder le nom de la classe d'un point `.`
 ```css
 .classe { /* ... */ }
 ```
+
 
 ### La différence entre ID et classe
 
@@ -462,3 +472,45 @@ Alors, dans ma feuille de style, je peux référencer l'image `bg.jpg` de la man
   background-image: url(../images/bg.jpg);
 }
 ```
+
+### Les pseudo-classes
+
+En CSS, il est possible de styliser un élément **à un moment choisi** d'interaction de l'utilisateur avec cet élément.
+
+On va cibler l'élément en CSS avec la syntaxe suivante :
+
+```css
+selecteur:pseudoclasse { /* ... */ }
+```
+
+#### :hover
+
+La pseudo-classe `hover` permet de styliser un élément lorsqu'on passe la souris dessus.
+
+```css
+/* Au passage de la souris sur un élément a se situant dans un élément ayant la classe "cta", lui-même situé dans un élément ayant une classe "banner", alors on passe la couleur d'arrière-plan à noir et la couleur de la police à blanc */
+.banner .cta a:hover {
+  background-color: black;
+  color: white;
+}
+```
+
+#### :active
+
+`active` permet de styliser l'élément lorsqu'on clique dessus.
+
+### Les transitions
+
+Les transitions en CSS permettent d'appliquer des effets visuels sur nos éléments, assurant ainsi une expérience de navigation plus fluide pour l'utilisateur.
+
+```css
+/*
+On divise ici notre déclaration en 3 parties :
+- Sur quelle(s) propriété(s) appliquer la transition ?
+- Quelle durée doit avoir la transition ?
+- Quel type de transition appliquer ?
+*/
+transition: all 100ms ease-in-out;
+```
+
+>Dans la plupart des cas, vous pouvez utiliser une déclaration comme effectuée dans l'exemple juste au-dessus. Si vous voulez approfondir dans les transitions, vous pouvez commencer par [ce lien vers le MDN](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Transitions/Utiliser_transitions_CSS) (Mozilla Developer Network)
