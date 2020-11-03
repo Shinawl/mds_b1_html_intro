@@ -514,3 +514,45 @@ transition: all 100ms ease-in-out;
 ```
 
 >Dans la plupart des cas, vous pouvez utiliser une déclaration comme effectuée dans l'exemple juste au-dessus. Si vous voulez approfondir dans les transitions, vous pouvez commencer par [ce lien vers le MDN](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Transitions/Utiliser_transitions_CSS) (Mozilla Developer Network)
+
+### Le positionnement
+
+Nous avons vu que les éléments HTML pouvaient être de type `block` ou `inline`. Un élément possède également ce qu'on appelle un **positionnement**.
+
+Avec la règle CSS `position`, nous pouvons contrôler de manière plus fine la manière dont un élément va s'afficher.
+
+#### fixed
+
+Il est possible de **fixer** un élément sur la page avec la valeur `fixed` :
+
+```css
+.monElement {
+  position: fixed;
+}
+```
+
+Dans ce cas, même un scroll de la page n'aura aucun effet sur la position de l'élément. Il reste **fixe** sur l'écran.
+
+>Cela peut être utile pour réaliser un menu qui reste collé en haut de l'écran, par exemple
+
+Attention, dans ce cas, il est nécessaire de positionner manuellement l'élément sur l'écran, via CSS. Pour ce faire, on dispose de 4 règles, qui vont nous permettre de positionner l'élément à une certaine distance des côtés de la page :
+
+```css
+/* Les valeurs peuvent être exprimées en px (pixels) par exemple */
+top : [valeur]; /* par rapport au haut de page, avec position fixed */
+right : [valeur]; /* par rapport au côté droit de la page, avec position fixed */
+left : [valeur]; /* par rapport au côté gauche de la page, avec position fixed */
+bottom : [valeur]; /* par rapport au bas de page, avec position fixed */
+```
+
+Il en ira de même pour le positionnement absolu, ci-dessous.
+
+#### absolute
+
+Le positionnement absolu permet de positionner un élément à l'intérieur d'un autre élément relatif.
+
+Pour cela, il faut placer l'élément par rapport auquel on souhaite positionner notre balise en `position: relative`.
+
+Ensuite, on peut positionner notre élément absolu manuellement avec top, right, left et bottom. Ces valeurs se rapporteront donc aux bords de l'élément relatif le plus proche, et non aux bords de la page.
+
+Un exemple [ici](https://github.com/ld-web/mds-b1-corpogia/blob/master/css/styles.css#L252).
